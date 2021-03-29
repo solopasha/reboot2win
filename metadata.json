@@ -1,0 +1,8 @@
+{
+  "name": "System Action - Reboot2win",
+  "description": "A GNOME extension that adds the option to reboot to windows other system actions",
+  "uuid": "reboot2win@solopasha",
+  "version": 4,
+  "gettext-domain": "towin@solopasha",
+  "shell-version": ["3.36", "3.38", "40.0"]
+}
