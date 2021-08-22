@@ -18,8 +18,8 @@
 
 /* exported init */
 
-const {PACKAGE_VERSION} = imports.misc.config;
-const {GLib, Gio} = imports.gi;
+const { PACKAGE_VERSION } = imports.misc.config;
+const { GLib, Gio } = imports.gi;
 const PopupMenu = imports.ui.popupMenu;
 const BoxPointer = imports.ui.boxpointer;
 const ExtensionUtils = imports.misc.extensionUtils;
@@ -31,7 +31,7 @@ const _ = Gettext.gettext;
 
 // Get running instance
 const Main = imports.ui.main;
-const {panel} = Main;
+const { panel } = Main;
 
 // D-Bus
 const ManagerInterface = `<node>
@@ -64,7 +64,7 @@ class Extension {
         this._sessionUpdatedId = Main.sessionMode.connect('updated',
             this._sessionUpdated.bind(this));
         this._sessionUpdated();
-t
+
         // Add to session submenu
         const itemIdx = (PACKAGE_VERSION > '3.38') ? 1 : 4;
         this._systemIndicator._sessionSubMenu.menu.addMenuItem(this._item, itemIdx);
@@ -78,11 +78,11 @@ t
     }
 
     _sessionUpdated() {
-            this._item.visible = true;
+        this._item.visible = true;
     }
 
     _reboot() {
-        GLib.spawn_command_line_async(`sudo efibootmgr -n 0001`)
+        GLib.spawn_command_line_async(`sudo efibootmgr -n 0000`)
         this._proxy.RebootRemote(true);
     }
 }
