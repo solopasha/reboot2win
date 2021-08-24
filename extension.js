@@ -82,7 +82,7 @@ class Extension {
     }
 
     _reboot() {
-        GLib.spawn_command_line_async(`sudo efibootmgr -n 0000`)
+        GLib.spawn_command_line_async(`efibootmgr | awk '/Windows Boot Manager/ { print $1 }' | cut -c 5-8 | xargs sudo efibootmgr -n`)
         this._proxy.RebootRemote(true);
     }
 }
